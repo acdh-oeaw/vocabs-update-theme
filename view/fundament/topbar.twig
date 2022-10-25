@@ -1,0 +1,58 @@
+<ul id="main-menu" class="navbar-nav">
+    <li class="nav-item active"> 
+        <a href="{{ request.lang }}/{% if request.contentLang and request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}{% if request.queryParam('anylang') == 'on' %}{% if request.contentLang == request.lang %}?{% else %}&{% endif %}anylang=on{% endif %}" id="navi1" class="nav-link navigation-font" >
+            {% trans "Vocabularies-nav" %}
+        </a>
+    </li>
+    <li class="nav-item"> 
+        <a href="{{ request.lang }}/about{% if request.contentLang and request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}{% if request.queryParam('anylang') == 'on' %}{% if request.contentLang == request.lang %}?{% else %}&{% endif %}anylang=on{% endif %}" id="navi2" class="nav-link navigation-font">
+            {% trans "About page" %}
+        </a>
+    </li>
+    <!-- 
+    <li class="nav-item"> 
+        <a href="{% if request.vocabid and vocab.title%}{{ request.vocabid }}/{% endif %}{{ request.lang }}/feedback{% if request.contentLang and request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}{% if request.queryParam('anylang') == 'on' %}{% if request.contentLang == request.lang %}?{% else %}&{% endif %}anylang=on{% endif %}" id="navi3" class="nav-link navigation-font">
+            {% trans "Feedback" %}
+        </a>
+    </li>-->
+     <li class="nav-item"> 
+        <a href="{% if request.vocabid and vocab.title%}{{ request.vocabid }}/{% endif %}{{ request.lang }}/about#editor{% if request.contentLang and request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}{% if request.queryParam('anylang') == 'on' %}{% if request.contentLang == request.lang %}?{% else %}&{% endif %}anylang=on{% endif %}" id="navi3" class="nav-link navigation-font">
+            {% trans "Editor" %}
+        </a>
+    </li>
+     <li class="nav-item"> 
+        <a href="{% if request.vocabid and vocab.title%}{{ request.vocabid }}/{% endif %}{{ request.lang }}/about#sparql{% if request.contentLang and request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}{% if request.queryParam('anylang') == 'on' %}{% if request.contentLang == request.lang %}?{% else %}&{% endif %}anylang=on{% endif %}" id="navi3" class="nav-link navigation-font">
+            {% trans "SPARQL" %}
+        </a>
+    </li>
+     <li class="nav-item"> 
+        <a href="{% if request.vocabid and vocab.title%}{{ request.vocabid }}/{% endif %}{{ request.lang }}/about#api{% if request.contentLang and request.contentLang != request.lang %}?clang={{ request.contentLang }}{% endif %}{% if request.queryParam('anylang') == 'on' %}{% if request.contentLang == request.lang %}?{% else %}&{% endif %}anylang=on{% endif %}" id="navi3" class="nav-link navigation-font">
+            {% trans "API" %}
+        </a>
+    </li>
+</ul>
+<span class="skosmos-tooltip-wrapper skosmos-tooltip t-bottom" id="navi4" tabindex="0" data-title="{% trans "helper_help" %} &#xa; &#xa; {% trans "search_example_text" %}">
+    <span class="navigation-font">{% trans "Help" %}</span>
+</span>
+
+{% if LanguageDropdown %}
+    <div id="language" class="dropdown"><span class="navigation-font">|</span>
+        <span class="navigation-font">{% trans "Interface language" %}:</span>
+        <button type="button" class="btn btn-default dropdown-toggle navigation-font" data-bs-toggle="dropdown">{{ request.lang | lang_name(request.lang) }}<span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-end">
+            {% for langcode, langdata in languages %}
+                {% if request.lang != langcode %}
+                    <li><a class="dropdown-item" id="language-{{ langcode }}" class="versal" href="{{ request.langurl(langcode) }}"> {{langdata.lemma}}</a></li>
+                    {% endif %}
+                {% endfor %}
+        </ul>
+    </div>
+{% elseif languages|length > 1 %}
+    <div id="language"><span class="navigation-font">|</span>
+        {% for langcode, langdata in languages %}
+            {% if request.lang != langcode %}
+                <a id="language-{{ langcode}}" class="navigation-font" href="{{ request.langurl(langcode) }}"> {{langdata.name}}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endif %}

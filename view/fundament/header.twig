@@ -1,0 +1,31 @@
+<div class="wrapper-fluid wrapper-navbar sticky-navbar" id="wrapper-navbar" itemscope itemtype="http://schema.org/WebSite">
+    <a class="skip-link screen-reader-text sr-only" href="#content">Skip to content</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container" >
+            
+            <!-- Your site title as branding in the menu -->
+            <a href="/" class="navbar-brand custom-logo-link" rel="home" itemprop="url"><img src="../resource/pics/vocabs-logo.svg" class="img-fluid" alt="Vocabs Logo" itemprop="logo" /></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+                 {% include 'fundament/topbar.twig' %}
+            </div>
+            <!-- .collapse navbar-collapse -->
+        </div>
+        <!-- .container -->
+    </nav>
+    <!-- .site-navigation -->
+</div>
+
+<!-- 
+<div class="topbar-container {% if request.vocabid != '' or request.page == 'feedback' or request.page == 'about' %}topbar-white{% else %}topbar-frontpage{% endif %}">
+            <div class="topbar{% if request.vocabid != '' or request.vocabid == 'feedback' or request.vocabid == 'about' %} topbar-white{% else %} frontpage{% endif %}">
+
+</div>
+</div>
+-->
+
+
+
