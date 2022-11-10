@@ -369,6 +369,8 @@ $(function() { // DOCUMENT READY
               $('.nav').scrollTop(0);
               if (window.history.pushState) { window.history.pushState({}, null, encodeURI(event.target.href)); }
               updateTitle(data);
+              $('#changes.nav-item > a.nav-link').addClass('active');
+              $('#alpha.nav-item > a.nav-link').removeClass('active');
             }
         });
         return false;
