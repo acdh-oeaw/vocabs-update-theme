@@ -44,7 +44,7 @@
         </div>
         <div class="col-sm-5 h-100 pl-2">
             <div class="text-center h-100">
-                <img class="img-responsive" src="../resource/pics/vocabseditor_01.png">
+                <img class="img-responsive" src="./resource/pics/vocabseditor_01.png">
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@
     <div class="row">
         <div class="col-sm-5 pr-2">
             <div class="text-center">
-                <img class="img-responsive" src="../resource/pics/sparql-01.png">
+                <img class="img-responsive" src="./resource/pics/sparql-01.png">
             </div>
         </div>
         <div class="col-sm-5 h-100 pl-2">
@@ -89,7 +89,7 @@
         </div>
         <div class="col-sm-5 h-100 pl-2">
             <div class="text-center h-100">
-                <img class="img-responsive" src="../resource/pics/vocabs-viz-02.png">
+                <img class="img-responsive" src="./resource/pics/vocabs-viz-02.png">
             </div>
         </div>
     </div>
