@@ -173,3 +173,6 @@ h3 {
     flex-wrap: unset !important;
 }
 
+.versal.form-label {
+    width: 100%;
+}
