@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="{{ request.lang }}">
+    <head>
+        <base href="{{ BaseHref }}">
+        <link rel="shortcut icon" href="favicon.ico">
+        {% include 'meta.twig' %}
+        <link href="vendor/twbs/bootstrap/dist/css/bootstrap.min.css" media="screen, print" rel="stylesheet" type="text/css">
+        <link href="vendor/vakata/jstree/dist/themes/default/style.min.css" media="screen, print" rel="stylesheet" type="text/css">
+        <link href="vendor/davidstutz/bootstrap-multiselect/dist/css/bootstrap-multiselect.min.css" media="screen, print" rel="stylesheet" type="text/css">
+        <link href="resource/css/fira.css" media="screen, print" rel="stylesheet" type="text/css">
+        <link href="resource/fontawesome/css/fontawesome.css" media="screen, print" rel="stylesheet" type="text/css">
+        <link href="resource/fontawesome/css/regular.css" media="screen, print" rel="stylesheet" type="text/css">
+        <link href="resource/fontawesome/css/solid.css" media="screen, print" rel="stylesheet" type="text/css">
+        <link href="resource/css/styles.css" media="screen, print" rel="stylesheet" type="text/css">
+        {% if ServiceCustomCss %}
+            <link href="{{ ServiceCustomCss }}" media="screen, print" rel="stylesheet" type="text/css">
+        {% endif %}
+
+        {% for plugin, files in request.plugins.pluginsCSS %}
+            {% for file in files %}
+                <link href="{{ file }}" media="screen, print" rel="stylesheet" type="text/css">
+            {% endfor %}
+        {% endfor %}
+
+        <link rel="stylesheet" id="fundament-styles"  href="resource/fundament/fundament.min.css" type="text/css"/>
+        <link rel="stylesheet" id="fundament-styles"  href="resource/fundament/fundament-vocabs.css" type="text/css"/>
+
+        <title>{{ ServiceName }}{% block title %}{% endblock %}</title>
+    </head>
+    <body{% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' %} class="frontpage-logo"{% else %} class="vocab-{{ request.vocabid }}"{% endif %}>
+
+        <noscript>
+        <strong>{% trans "We're sorry but Skosmos doesn't work properly without JavaScript enabled. Please enable it to continue." %}</strong>
+        </noscript>
+
+        <!-- <a id="skiptocontent" href="{{ request.langurl }}#maincontent">{% trans "Skip to main" %}</a> -->
+
+        <div class="hfeed site" id="page">
+
+            <!-- HEADER -->
+            {% include 'fundament/header.twig' %}
+            <!-- HEADER END -->
+            {% if request.vocabid == '' or request.page == 'feedback' or request.page == 'about' %} 
+                {% include 'fundament/header_hero.twig' %}
+            {% endif %}
+            <div class="wrapper" id="index-wrapper">
+                {% block headernav %}
+                    <div class="container headerbar">
+                        <div class="row-fluid">
+                            {% include 'fundament/headerbar.twig' %}
+                        </div>
+                    </div>        
+                {% endblock %}
+
+                <div class="container main" id="content" tabindex="-1">
+                    <div class="row-fluid">
+                        <!-- Do the left sidebar check and opens the primary div -->
+                        <div class="col-md-12 content-area" id="primary">
+                            <main class="site-main" id="main">
+                                <div class="main-container{% if request.vocabid == '' or global_search %} frontpage{% if list_style %} {{ list_style }}{% endif %}{% endif %}">
+
+                                    {% if request.vocabid != '' and request.page != 'feedback'  %}
+                                        {% include 'fundament/sidebar.twig' ignore missing %}
+                                    {% endif %}
+
+                                    {% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' and not global_search %}
+                                        {% include 'left.inc' ignore missing %}
+                                    {% endif %}
+
+                                    {% block error %}
+                                        <main id="maincontent" tabindex="-1">
+                                            {% if request.vocabid == '' and request.page != 'feedback' and request.page != 'about' and not global_search %}
+                                                {% include 'vocabularylist.twig' %}
+                                            {% endif %}
+                                            <div class="{% if global_search %}global-{% elseif request.page == 'vocab' and not request.vocab.config.showAlphabeticalIndex and not request.vocab.config.showTopConcepts and not request.vocab.config.showChangeList %}wide-{% endif %}content {% if request.page == 'about' %} about {% endif %}">
+                                                <div id="content-top"></div>
+                                                {% block content %}
+                                                {% endblock %}
+                                                <div id="content-bottom"></div>
+                                            </div>
+                                        </main>
+                                    {% endblock %}
+
+                                    {% if request.vocabid == '' and not global_search and request.page != 'feedback' and request.page != 'about' %}
+                                        {% include 'right.inc' ignore missing %}
+                                    {% endif %}
+
+
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>                        
+
+            <!-- HEADER -->
+            {% include 'fundament/footer.twig' %}
+            <!-- HEADER END -->    
+
+        </div>
+
+        {% include 'scripts.twig' %}
+        {% for id, template in request.plugins.templates %}<script id="{{ id }}" type="text/x-handlebars-template">{{ template|raw }}</script>{% endfor %}
+    </body>
+</html>
