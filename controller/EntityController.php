@@ -70,7 +70,11 @@ class EntityController extends Controller
         // optional query parameter for forcing a specific format
         $requestedFormat = $request->getQueryParam('format');
 
-        $targetFormat = $this->negotiateFormat($supportedFormats, $request->getServerConstant('HTTP_ACCEPT'), $requestedFormat);
+		$accept = $request->getServerConstant('HTTP_ACCEPT');
+		if (empty($accept)) {
+			$accept = '*/*';
+		}
+        $targetFormat = $this->negotiateFormat($supportedFormats, $accept, $requestedFormat);
 
         if (in_array($targetFormat, $restFormats)) {
             $this->redirectREST($request->getVocab(), $request->getUri(), $targetFormat);
