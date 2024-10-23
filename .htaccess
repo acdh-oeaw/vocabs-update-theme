@@ -28,3 +28,9 @@ RewriteRule ^favicon.ico$ custom-favicon.ico [L]
         Deny from all 
     </IfModule> 
 </Files>
+
+<Files "swagger.json">
+    <IfModule mod_headers.c>
+        Header set Access-Control-Allow-Origin "*"
+    </IfModule>
+</Files>
