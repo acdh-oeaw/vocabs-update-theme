@@ -4,6 +4,7 @@ vendor
 report
 components
 plugins/*
+!plugins/matomo*
 !README
 composer.phar
 composer.lock

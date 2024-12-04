@@ -4,6 +4,7 @@ vendor
 report
 components
 plugins/*
+!plugins/matomo*
 composer.phar
 composer.lock
 tests/jena-fuseki*
