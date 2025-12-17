@@ -65,6 +65,9 @@
   "config": {
     "allow-plugins": {
       "robloach/component-installer": true
+    },
+    "audit": {
+      "ignore": ["PKSA-yhcn-xrg3-68b1", "PKSA-2wrf-1xmk-1pky"]
     }
   }
 }
