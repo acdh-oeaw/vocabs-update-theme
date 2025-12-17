@@ -3,13 +3,13 @@
         <div class="col-sm-12">
             <h4>Vocabs services</h4>
             <p>
-                In many areas of scholarly work, controlled vocabularies (gazetteers, thesauri, etc.) play a crucial role as a stable reference for resources and for ensuring interoperability between disparate projects and their data. The ACDH-CH provides services and tools that allow for collaborative creation, maintenance and publication of vocabularies and taxonomies of any kind.
+                In many areas of scholarly work, controlled vocabularies (gazetteers, thesauri, etc.) play a crucial role as a stable reference for resources and for ensuring interoperability between disparate projects and their data. The ACDH provides services and tools that allow for collaborative creation, maintenance and publication of vocabularies and taxonomies of any kind.
             </p>
             <p>
                 Vocabs browse service is based on the open-source software <a href="https://skosmos.org/">Skosmos</a>, which uses <a href="https://www.w3.org/TR/2009/REC-skos-reference-20090818/">SKOS</a> as the underlying data model. Skosmos offers browsing of vocabularies with structured concept displays and visualisation of concept hierarchies. Vocabularies can be searched with a search interface or by consulting an alphabetical or thematic index. Vocabularies can be accessed via a REST-API, to allow for Linked Data.
             </p>
             <p>
-                Vocabs services does not only serve controlled vocabularies for ACDH-CH purposes, but is also employed as a service for partners of the national <a href="https://clariah.at/">CLARIAH-AT</a> consortium, for the <a href="https://www.dariah.eu/activities/working-groups/thesaurus-maintenance/">Thesaurus Maintenance</a> working group in DARIAH-EU, and in general as a service of <a href="https://www.dariah.eu/">DARIAH-EU</a> where it can also be accessed at <a href="https://vocabs.dariah.eu">https://vocabs.dariah.eu</a>.
+                Vocabs services does not only serve controlled vocabularies for ACDH purposes, but is also employed as a service for partners of the national <a href="https://clariah.at/">CLARIAH-AT</a> consortium, for the <a href="https://www.dariah.eu/activities/working-groups/thesaurus-maintenance/">Thesaurus Maintenance</a> working group in DARIAH-EU, and in general as a service of <a href="https://www.dariah.eu/">DARIAH-EU</a> where it can also be accessed at <a href="https://vocabs.dariah.eu">https://vocabs.dariah.eu</a>.
             </p>
         </div>
     </div>
