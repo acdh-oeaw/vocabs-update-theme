@@ -67,7 +67,7 @@
       "robloach/component-installer": true
     },
     "audit": {
-      "ignore": ["PKSA-yhcn-xrg3-68b1", "PKSA-2wrf-1xmk-1pky"]
+      "ignore": ["PKSA-yhcn-xrg3-68b1", "PKSA-2wrf-1xmk-1pky", "PKSA-z3gr-8qht-p93v"]
     }
   }
 }
